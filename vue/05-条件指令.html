@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+        <input type="checkbox" v-model="status"/>  <!--双向绑定，勾选上复选框，status值会变-->
+        
+        <div v-if="status">选中了</div>  <!--判断status=true，表示选中，否则没选中-->
+        <div v-else>没选中</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                status:false
+            }
+        });
+    </script>
+</body>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table border="1px">
+            <tr v-for="user in userList">
+                <!--插值表达式取值-->
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                userList:[]
+            },
+            created(){     //在页面渲染之前执行
+                this.getList();  //调用方法，得到返回json数据
+            },
+            methods:{
+                getList(){
+                    //使用axios方式ajax请求
+                    axios.get("user.json")  //请求的路径
+                        .then(response => {   //请求成功执行的方法(箭头函数)
+                            //console.log(response);
+                            this.userList = response.data.data.items;
+                            console.log(this.userList);  //注意这里要加上this
+                        })  
+                        .catch(error => {
+                            console.log(error);  //请求失败执行的方法(箭头函数)
+                        }) 
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

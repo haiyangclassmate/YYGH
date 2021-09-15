@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--事件  v-on或者@，script加上methods,里面写方法  -->
+        <button v-on:click="show1()">绑定事件</button>
+        <!--简写-->
+        <button @click="show2()">绑定事件</button>
+        
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"南京市"
+            },
+            methods:{
+                show1(){
+                    console.log("aaa...");
+                },
+                show2(){
+                    console.log("bbb...");
+                }
+            }
+        });
+    </script>
+</body>
+</body>
+</html>
